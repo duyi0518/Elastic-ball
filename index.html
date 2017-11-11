@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{
+            margin:0;
+            padding:0;
+            width: 100%;
+            height: 100%;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            cursor: move;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+        #box img{
+            width:100%;
+            height: 100%;
+            animation: hue 1s steps(8) infinite;
+        }
+        @keyframes hue {
+            0%{
+                filter: hue-rotate(0deg);
+            }
+            100%{
+                filter: hue-rotate(1800deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img src="img/10.png">
+</div>
+</body>
+</html>
+<script src="js/Drag.js"></script>
+<script>
+var box=document.getElementById("box");
+    var drag=new Drag(box);
+    //drag.add("Down",border)
+    drag.jump();
+    function border() {
+        box.children[0].style.display="none";
+        box.style.border="1px dashed red"
+    }
+
+</script>
